@@ -27,6 +27,16 @@
             android:src="@drawable/ic_image_placeholder" />
     </androidx.cardview.widget.CardView>
 
+    <ProgressBar
+        android:id="@+id/progressBar"
+        app:layout_constraintTop_toBottomOf="@id/cvMain"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="100"
+        tools:progress="40" />
+
     <Button
         android:id="@+id/btnSendRequest"
         android:layout_width="wrap_content"

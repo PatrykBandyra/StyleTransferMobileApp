@@ -10,6 +10,7 @@ import android.os.Handler
 import android.os.Looper
 import android.provider.Settings
 import android.util.Log
+import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.webkit.MimeTypeMap
 import android.widget.TextView
@@ -112,6 +113,11 @@ abstract class BaseActivity<B : ViewBinding> : AppCompatActivity() {
     protected fun showErrorSnackBar(@StringRes message: Int) {
         val snackBar =
             Snackbar.make(findViewById(android.R.id.content), message, Snackbar.LENGTH_LONG)
+                .also { snackbar ->
+                    snackbar.setAction("OK") {
+                        snackbar.dismiss()
+                    }
+                }
         val snackBarView = snackBar.view
         snackBarView.setBackgroundColor(ContextCompat.getColor(this, R.color.snackbar_error_color))
         snackBar.show()
@@ -156,5 +162,13 @@ abstract class BaseActivity<B : ViewBinding> : AppCompatActivity() {
 
     protected fun getFileExtension(uri: Uri?): String? {
         return MimeTypeMap.getSingleton().getExtensionFromMimeType(contentResolver.getType(uri!!))
+    }
+
+    fun View.snackbar(message: String) {
+        Snackbar.make(this, message, Snackbar.LENGTH_LONG).also { snackbar ->
+            snackbar.setAction("Ok") {
+                snackbar.dismiss()
+            }
+        }.show()
     }
 }

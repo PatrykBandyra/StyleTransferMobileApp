@@ -7,4 +7,6 @@
     <string name="rationale_message">It look like you have turned off permission required for this feature. It can be enabled under the Applications Settings.</string>
     <string name="please_wait">Please wait&#8230;</string>
     <string name="please_click_back_again_to_exit">Please click back again to exit</string>
+    <string name="upload_error">Something went wrong</string>
+    <string name="download_error">Cannot download a file</string>
 </resources>
